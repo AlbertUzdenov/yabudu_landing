@@ -27,14 +27,12 @@ function Hero({ accent }) {
       <Decor.Blob color={accent} size={380} x="80%" y="-10%" opacity={0.12} dur={20} delay={6} blur={70} />
 
       {/* floating decorative accents */}
-      <Decor.Donut size={140} color={BLUE} accent={accent} thickness={20} dur={26}
-      style={{ position: 'absolute', top: '14%', right: '4%', opacity: 0.85 }} />
       <Decor.Burst color={accent} size={70} dur={14}
       style={{ position: 'absolute', top: '38%', left: '52%', opacity: 0.9 }} />
       <Decor.DotGrid color={accent} cols={5} rows={5} gap={12} dot={4} opacity={0.5}
       style={{ position: 'absolute', bottom: '20%', right: '34%' }} />
 
-      <div className="wrap" style={{ position: 'relative', width: '100%', paddingTop: 120, paddingBottom: 80 }}>
+      <div className="wrap" style={{ position: 'relative', width: '100%', paddingTop: 56, paddingBottom: 80 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 60, alignItems: 'center' }}>
           {/* left */}
           <div className="reveal in hero-left">
@@ -61,14 +59,30 @@ function Hero({ accent }) {
             <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Афиша на карте, кто из своих идёт, билет — в один тап. От «куда сходить» до «спасибо за вечер» — внутри одного экрана.
 
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'flex-start' }}>
-              <a className="btn btn-primary" style={{ background: accent, boxShadow: `0 8px 24px -8px ${accent}99` }}>
-                Получить ранний доступ <Icon.Arrow size={18} color="white" />
-              </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                <a className="btn btn-primary" style={{ background: accent, boxShadow: `0 8px 24px -8px ${accent}99`, gap: 12 }}>
+                  <svg width="18" height="22" viewBox="0 0 18 22" fill="none" style={{ marginRight: -2 }}>
+                    <path d="M14.94 11.41c-.02-2.43 1.99-3.6 2.08-3.66-1.13-1.66-2.9-1.88-3.53-1.91-1.5-.15-2.93.88-3.7.88-.76 0-1.94-.86-3.19-.84-1.64.03-3.15.95-3.99 2.42-1.7 2.95-.43 7.32 1.22 9.72.8 1.18 1.76 2.5 3.01 2.45 1.21-.05 1.67-.78 3.13-.78 1.45 0 1.87.78 3.15.75 1.3-.02 2.12-1.19 2.92-2.38.92-1.37 1.3-2.7 1.32-2.77-.03-.01-2.53-.97-2.55-3.86zm-2.42-7.1c.66-.83 1.11-1.96.99-3.1-.96.04-2.13.65-2.82 1.46-.61.72-1.16 1.89-1.01 2.99 1.08.08 2.18-.55 2.84-1.35z" fill="white"/>
+                  </svg>
+                  <span>iOS</span>
+                </a>
+                <a className="btn" style={{
+                  background: 'transparent',
+                  color: 'var(--ink)',
+                  border: '1.5px solid rgba(10,10,14,0.18)',
+                  gap: 12,
+                }}>
+                  <svg width="18" height="20" viewBox="0 0 18 20" fill="none" style={{ marginRight: -2 }}>
+                    <path d="M.61 19.39c.21.12.45.18.71.18.27 0 .54-.07.78-.22l11.3-6.52L9.85 9.7.61 19.39zM16.55 8.83 13.7 7.18l-3.21 3.21 3.21 3.21 2.85-1.65a1.42 1.42 0 0 0 0-2.46.71.71 0 0 0 0-.66zM2.1.43A1.42 1.42 0 0 0 .56.43c-.24.14-.4.4-.4.68v17.72L9.4 9.7.16.43zM12.42 6.6 1.32.07A1.45 1.45 0 0 0 .8.01l8.84 8.84L12.42 6.6z" fill="currentColor"/>
+                  </svg>
+                  <span>Android</span>
+                </a>
+              </div>
               <div style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '.08em', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                <span>бесплатно</span>
+                <span>ранний доступ</span>
                 <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
-                <span>iOS и Android</span>
+                <span>бесплатно</span>
                 <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
                 <span>без рекламы внутри</span>
               </div>

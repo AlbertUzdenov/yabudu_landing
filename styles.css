@@ -272,11 +272,11 @@ footer a:hover { color: var(--ink); }
   /* Hero */
   #hero {
     min-height: auto !important;
-    padding-top: 88px !important;
+    padding-top: 40px !important;
     padding-bottom: 80px !important;
     align-items: flex-start !important;
   }
-  #hero .wrap { padding-top: 24px !important; padding-bottom: 60px !important; }
+  #hero .wrap { padding-top: 16px !important; padding-bottom: 60px !important; }
   .hero-right { display: none !important; }
   .hero-grid { gap: 32px !important; align-items: flex-start !important; }
   .hero-left img[alt="Я_БУДУ"] { max-width: 320px !important; width: 90% !important; }

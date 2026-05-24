@@ -1,4 +1,4 @@
-// Top navigation — animated active indicator, hover pill, scroll progress
+// Top navigation — right-rail vertical tab bar
 function Nav({ accent }) {
   const BLUE = '#2F33F9';
   const items = [
@@ -6,36 +6,18 @@ function Nav({ accent }) {
     { id: 'solution',  label: 'Решение' },
     { id: 'flow',      label: 'Сценарий' },
     { id: 'features',  label: 'Возможности' },
+    { id: 'benefits',  label: 'Польза' },
     { id: 'market',    label: 'Рынок' },
+    { id: 'money',     label: 'Монетизация' },
     { id: 'community', label: 'Комьюнити' },
     { id: 'faq',       label: 'FAQ' },
   ];
 
   const [active, setActive] = React.useState('hero');
-  const [hover, setHover] = React.useState(null); // id or null
-  const [scrolled, setScrolled] = React.useState(false);
-  const [progress, setProgress] = React.useState(0);
-  const linksRef = React.useRef(null);
-  const [indicator, setIndicator] = React.useState({ x: 0, w: 0, visible: false });
-  const [hoverInd, setHoverInd] = React.useState({ x: 0, w: 0, visible: false });
-
-  // Track scroll progress + shrink threshold
-  React.useEffect(() => {
-    const onScroll = () => {
-      const h = document.documentElement;
-      const max = h.scrollHeight - h.clientHeight;
-      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
-      setScrolled(window.scrollY > 32);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Track which section is currently in view
   React.useEffect(() => {
     const io = new IntersectionObserver((entries) => {
-      // pick the entry with the largest intersection ratio
       const visible = entries.filter(e => e.isIntersecting);
       if (visible.length === 0) return;
       const top = visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -48,176 +30,98 @@ function Nav({ accent }) {
     return () => io.disconnect();
   }, []);
 
-  // Position the active indicator pill
-  React.useEffect(() => {
-    if (!linksRef.current) return;
-    const link = linksRef.current.querySelector(`[data-link="${active}"]`);
-    if (!link) { setIndicator(s => ({ ...s, visible: false })); return; }
-    const parentRect = linksRef.current.getBoundingClientRect();
-    const r = link.getBoundingClientRect();
-    setIndicator({ x: r.left - parentRect.left, w: r.width, visible: true });
-  }, [active, scrolled]);
-
-  // Position the hover indicator
-  React.useEffect(() => {
-    if (!hover || !linksRef.current) { setHoverInd(s => ({ ...s, visible: false })); return; }
-    const link = linksRef.current.querySelector(`[data-link="${hover}"]`);
-    if (!link) return;
-    const parentRect = linksRef.current.getBoundingClientRect();
-    const r = link.getBoundingClientRect();
-    setHoverInd({ x: r.left - parentRect.left, w: r.width, visible: true });
-  }, [hover, scrolled]);
+  const accentRGB = accent === '#FE5C1C' ? '254,92,28' : '47,51,249';
 
   return (
     <>
-      <nav className={`nav nav-modern ${scrolled ? 'is-scrolled' : ''}`}>
-        {/* progress bar */}
-        <div className="nav-progress" aria-hidden="true">
-          <div className="nav-progress-bar" style={{
-            width: `${progress * 100}%`,
-            background: `linear-gradient(90deg, ${BLUE}, ${accent})`,
-          }}/>
-        </div>
-
-        {/* Logo */}
-        <a href="#hero" className="nav-logo-link">
-          <Logo height={scrolled ? 30 : 36}/>
-        </a>
-
-        {/* Links */}
-        <div className="nav-links-wrap" ref={linksRef}
-          onMouseLeave={() => setHover(null)}
-        >
-          {/* Hover pill */}
-          <span className="nav-pill nav-pill-hover" style={{
-            left: hoverInd.x, width: hoverInd.w,
-            opacity: hoverInd.visible ? 1 : 0,
-            background: 'rgba(10,10,14,0.06)',
-          }}/>
-          {/* Active dot indicator */}
-          <span className="nav-active-dot" style={{
-            left: indicator.x + indicator.w / 2 - 3,
-            opacity: indicator.visible ? 1 : 0,
-            background: accent,
-          }}/>
-
-          {items.map((it) => (
-            <a key={it.id}
-              data-link={it.id}
-              href={`#${it.id}`}
-              className={`nav-link ${active === it.id ? 'is-active' : ''}`}
-              onMouseEnter={() => setHover(it.id)}
-            >
-              {it.label}
-            </a>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <a className="nav-cta" style={{ background: accent }}>
-          <span className="nav-cta-dot"/>
-          <span>Скачать</span>
-          <span className="nav-cta-arrow">
-            <Icon.Arrow size={14} color="white"/>
-          </span>
-        </a>
+      <nav className="rail-nav" aria-label="Разделы">
+        {items.map((it) => (
+          <a key={it.id}
+            href={`#${it.id}`}
+            className={`rail-link ${active === it.id ? 'is-active' : ''}`}
+            aria-current={active === it.id ? 'page' : undefined}
+          >
+            <span className="rail-label">{it.label}</span>
+            <span className="rail-dot" aria-hidden="true" />
+          </a>
+        ))}
       </nav>
 
       <style>{`
-        .nav-modern {
-          padding: 14px 28px;
-          background: rgba(255, 255, 255, 0.72);
-          backdrop-filter: blur(20px) saturate(160%);
-          -webkit-backdrop-filter: blur(20px) saturate(160%);
-          border-bottom: 1px solid transparent;
-          transition: padding .3s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s, box-shadow .3s;
-          gap: 28px;
+        /* Right-rail vertical tab bar — transparent, doesn't block content */
+        .rail-nav {
+          position: fixed; right: 14px; top: 50%; transform: translateY(-50%);
+          z-index: 50;
+          display: flex; flex-direction: column;
+          gap: 4px;
+          padding: 8px 6px;
         }
-        .nav-modern.is-scrolled {
-          padding: 10px 28px;
-          background: rgba(255, 255, 255, 0.85);
-          border-bottom-color: var(--line);
-          box-shadow: 0 8px 24px -16px rgba(10,10,30,0.10);
-        }
-        .nav-progress {
-          position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
-          pointer-events: none;
-        }
-        .nav-progress-bar {
-          height: 100%;
-          transition: width .12s linear;
-          border-radius: 0 2px 2px 0;
-        }
-        .nav-logo-link {
-          text-decoration: none; display: flex; align-items: center;
-          transition: transform .3s cubic-bezier(.2,.8,.2,1);
-        }
-        .nav-logo-link:hover { transform: scale(1.03); }
-
-        .nav-links-wrap {
+        .rail-link {
           position: relative;
-          display: flex; align-items: center; gap: 4px;
-          padding: 6px 8px;
-          border-radius: 999px;
-          background: rgba(10,10,14,0.03);
+          display: flex; align-items: center; justify-content: flex-end;
+          gap: 12px;
+          height: 28px; padding: 0 4px 0 14px;
+          text-decoration: none;
+          color: var(--ink);
+          opacity: 0.5;
+          transition: opacity .25s, color .25s;
+        }
+        .rail-link:hover { opacity: 1; }
+        .rail-link.is-active { opacity: 1; color: ${accent}; }
+        .rail-label {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-weight: 500;
+          padding: 4px 10px;
+          background: rgba(255,255,255,0.78);
+          backdrop-filter: blur(12px) saturate(160%);
+          -webkit-backdrop-filter: blur(12px) saturate(160%);
           border: 1px solid var(--line);
-        }
-        .nav-link {
-          position: relative; z-index: 2;
-          padding: 10px 16px; border-radius: 999px;
-          font-size: 14.5px; font-weight: 500;
-          color: var(--ink); text-decoration: none;
-          transition: color .2s;
-        }
-        .nav-link.is-active { color: var(--ink); font-weight: 600; }
-        .nav-pill {
-          position: absolute; z-index: 1;
-          top: 6px; bottom: 6px;
           border-radius: 999px;
-          transition: left .35s cubic-bezier(.2,.8,.2,1), width .35s cubic-bezier(.2,.8,.2,1), opacity .25s;
+          color: inherit;
+          opacity: 0;
+          transform: translateX(8px);
+          transition: opacity .25s cubic-bezier(.2,.8,.2,1), transform .25s cubic-bezier(.2,.8,.2,1);
+          pointer-events: none;
+          white-space: nowrap;
         }
-        .nav-active-dot {
-          position: absolute; bottom: 0; width: 6px; height: 6px;
+        .rail-link:hover .rail-label,
+        .rail-link.is-active .rail-label {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        .rail-dot {
+          display: inline-block;
+          width: 6px; height: 6px;
           border-radius: 50%;
-          transition: left .35s cubic-bezier(.2,.8,.2,1), opacity .3s;
-          pointer-events: none; z-index: 3;
+          background: currentColor;
+          flex-shrink: 0;
+          transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s;
         }
-
-        .nav-cta {
-          display: inline-flex; align-items: center; gap: 8px;
-          padding: 11px 18px 11px 14px;
-          border-radius: 999px;
-          color: white; text-decoration: none;
-          font-weight: 600; font-size: 14px;
-          box-shadow: 0 8px 22px -10px currentColor;
-          transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, padding .3s;
-          position: relative; overflow: hidden;
+        .rail-link:hover .rail-dot { transform: scale(1.35); }
+        .rail-link.is-active .rail-dot {
+          transform: scale(1.6);
+          box-shadow: 0 0 0 4px rgba(${accentRGB}, 0.18);
         }
-        .nav-cta::before {
-          content: ""; position: absolute; inset: 0;
-          background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
-          transform: translateX(-100%);
-          transition: transform .7s cubic-bezier(.2,.8,.2,1);
-        }
-        .nav-cta:hover { transform: translateY(-2px); }
-        .nav-cta:hover::before { transform: translateX(100%); }
-        .nav-cta-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: white;
-          box-shadow: 0 0 0 0 rgba(255,255,255,0.6);
-          animation: nav-pulse 2s ease-in-out infinite;
-        }
-        @keyframes nav-pulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
-          50% { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
-        }
-        .nav-cta-arrow {
-          display: inline-flex; transition: transform .25s cubic-bezier(.2,.8,.2,1);
-        }
-        .nav-cta:hover .nav-cta-arrow { transform: translateX(3px); }
 
         @media (max-width: 980px) {
-          .nav-links-wrap { display: none; }
+          .rail-nav {
+            right: 6px;
+            padding: 4px;
+            gap: 0;
+          }
+          .rail-link { height: 26px; padding-right: 2px; }
+          .rail-label {
+            font-size: 10px;
+            padding: 3px 8px;
+          }
+          .rail-dot { width: 5px; height: 5px; }
+        }
+        @media (max-width: 480px) {
+          .rail-label { display: none; }
+          .rail-link { padding-left: 8px; padding-right: 4px; }
         }
       `}</style>
     </>

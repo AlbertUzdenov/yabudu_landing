@@ -76,8 +76,9 @@ function Market({ accent }) {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <div style={{
-              width: 52, height: 52, borderRadius: 14, background: 'var(--blue)', color: 'white',
-              display: 'flex', alignItems: 'center', justifyContent: 'center'
+              width: 56, height: 56, borderRadius: '50%', background: 'var(--blue)', color: 'white',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 12px 24px -10px rgba(47,51,249,0.45)'
             }}>
               <Icon.Trend size={26} color="white" />
             </div>
