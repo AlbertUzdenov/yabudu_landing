@@ -344,6 +344,12 @@ footer a:hover { color: var(--ink); }
   .benefits-layout > div:first-child { padding: 24px !important; min-height: 280px !important; border-radius: 20px !important; }
   .benefits-layout > div:first-child .display[aria-hidden="true"] { font-size: 240px !important; }
 
+  /* FAQ items — tighter on mobile */
+  .faq-list > div { border-radius: 14px !important; }
+  .faq-list > div > button { padding: 16px 16px !important; gap: 12px !important; }
+  .faq-list > div > button > span:nth-child(2) { font-size: 15.5px !important; }
+  .faq-list > div > div > div > div { padding: 0 16px 18px 16px !important; font-size: 14.5px !important; }
+
   /* Footer CTA */
   .footer-cta-wrap { padding: 32px 22px !important; border-radius: 24px !important; margin-bottom: 36px !important; }
   .footer-cta-wrap h3.display { font-size: clamp(28px, 7vw, 40px) !important; }

@@ -16,13 +16,13 @@ function Monetization({ accent }) {
       <Decor.Blob color="#2F33F9" size={500} x="-10%" y="20%" opacity={0.07} dur={22} delay={3} blur={90} />
       <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">
-          <span className="eyebrow">07 — МАРКЕТИНГ</span>
+          <span className="eyebrow">07 — монетизация</span>
           <h2 className="display">
-            О нашей раскрутке —<br />
-            <span style={{ color: accent }}>и о нашей траектории вверх
+            Четыре потока выручки —<br />
+            <span style={{ color: accent }}>и нелинейный рост
 </span>
           </h2>
-          <p>Четыре потока, которые усиливают друг друга. Чем больше людей внутри, тем интереснее каждый из них.</p>
+          <p>Каждый поток усиливает остальные. Чем больше людей внутри, тем выше отдача от каждого канала.</p>
         </div>
 
         <div className="money-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 32, alignItems: 'stretch' }}>

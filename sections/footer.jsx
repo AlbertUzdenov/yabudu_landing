@@ -35,9 +35,14 @@ function Footer({ accent }) {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <a className="btn" style={{ background: 'white', color: 'var(--ink)', justifyContent: 'space-between', padding: '22px 28px', fontSize: 18 }}>
-                <span>Скачать приложение</span>
+                <span>Создать первое событие</span>
                 <Icon.Arrow size={20} color="var(--ink)"/>
               </a>
+              <div style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '.08em', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                <span>без модерации</span>
+                <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(255,255,255,0.5)' }} />
+                <span>выплаты в день события</span>
+              </div>
             </div>
           </div>
         </div>

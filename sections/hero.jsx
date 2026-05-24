@@ -55,16 +55,23 @@ function Hero({ accent }) {
                 fontSize: 'clamp(28px, 3.2vw, 52px)', fontWeight: 400, letterSpacing: '-0.01em',
                 lineHeight: 1.1, marginTop: 24, color: 'var(--ink)'
               }}>
-                объединяем город,<br />людей и события
+                События, билеты и компания —<br />в одном приложении
               </div>
             </div>
-            <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Найди событие по вкусу или собери своё — за пять минут и без посредников. Билеты, чат, карта и друзья — всё внутри
+            <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Афиша на карте, кто из своих идёт, билет — в один тап. От «куда сходить» до «спасибо за вечер» — внутри одного экрана.
 
             </p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'flex-start' }}>
               <a className="btn btn-primary" style={{ background: accent, boxShadow: `0 8px 24px -8px ${accent}99` }}>
-                Скачать приложение <Icon.Arrow size={18} color="white" />
+                Получить ранний доступ <Icon.Arrow size={18} color="white" />
               </a>
+              <div style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '.08em', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                <span>бесплатно</span>
+                <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
+                <span>iOS и Android</span>
+                <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
+                <span>без рекламы внутри</span>
+              </div>
             </div>
           </div>
 

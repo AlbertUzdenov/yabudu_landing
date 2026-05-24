@@ -8,6 +8,7 @@ function Nav({ accent }) {
     { id: 'features',  label: 'Возможности' },
     { id: 'market',    label: 'Рынок' },
     { id: 'community', label: 'Комьюнити' },
+    { id: 'faq',       label: 'FAQ' },
   ];
 
   const [active, setActive] = React.useState('hero');

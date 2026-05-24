@@ -34,6 +34,7 @@ function App() {
       <Market accent={accent}/>
       <Monetization accent={accent}/>
       <Community accent={accent}/>
+      <FAQ accent={accent}/>
       <Footer accent={accent}/>
 
       <TweaksPanel title="Tweaks">
