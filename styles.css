@@ -315,6 +315,35 @@ footer a:hover { color: var(--ink); }
   /* Solution cards — minHeight tighter */
   .sol-grid > .reveal > div { min-height: auto !important; padding: 24px !important; }
 
+  /* Problem cards — tighten inline padding & min-height set on the card root */
+  .problem-bento > div { padding: 22px !important; min-height: auto !important; border-radius: 20px !important; }
+  .problem-bento > div .display[aria-hidden="true"] { font-size: 130px !important; right: -4px !important; bottom: -16px !important; }
+  .problem-bento > div .display:not([aria-hidden]) { font-size: 22px !important; }
+  /* Problem summary strip */
+  #problem > .wrap > .reveal[data-d="3"] { padding: 20px 22px !important; border-radius: 18px !important; gap: 14px !important; }
+  #problem > .wrap > .reveal[data-d="3"] > div:first-child { font-size: 16px !important; }
+
+  /* Monetization right column (growth chart card) tighter */
+  .money-grid > .reveal { padding: 24px !important; border-radius: 20px !important; }
+  .money-grid > .reveal h3.display { font-size: 22px !important; }
+
+  /* Market summary strip (white card under stats) */
+  #market > .wrap > .reveal[data-d="4"] { padding: 20px 22px !important; border-radius: 18px !important; gap: 14px !important; }
+  #market > .wrap > .reveal[data-d="4"] > div > div > div:nth-child(2) { font-size: 15.5px !important; }
+  /* Market stat cards padding */
+  .market-grid > .reveal { padding: 24px !important; }
+  .market-grid .display { font-size: 44px !important; }
+
+  /* Solution card inner text */
+  .sol-grid > .reveal > div .display { font-size: 26px !important; }
+
+  /* Community cards padding */
+  .community-grid > div { padding: 22px !important; }
+
+  /* Benefits hero stat card */
+  .benefits-layout > div:first-child { padding: 24px !important; min-height: 280px !important; border-radius: 20px !important; }
+  .benefits-layout > div:first-child .display[aria-hidden="true"] { font-size: 240px !important; }
+
   /* Footer CTA */
   .footer-cta-wrap { padding: 32px 22px !important; border-radius: 24px !important; margin-bottom: 36px !important; }
   .footer-cta-wrap h3.display { font-size: clamp(28px, 7vw, 40px) !important; }

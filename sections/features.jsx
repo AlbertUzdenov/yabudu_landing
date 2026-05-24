@@ -4,15 +4,15 @@ function Features({ accent }) {
   return (
     <section id="features" style={{ position: 'relative', overflow: 'hidden' }}>
       <Decor.Burst color={BLUE} size={56} dur={16}
-        style={{ position: 'absolute', top: 90, left: '8%', opacity: 0.7 }}/>
-      <Decor.Blob color={accent} size={520} x="-10%" y="55%" opacity={0.06} dur={28} blur={100}/>
-      <Decor.Blob color={BLUE} size={520} x="80%" y="10%" opacity={0.06} dur={22} delay={4} blur={100}/>
+      style={{ position: 'absolute', top: 90, left: '8%', opacity: 0.7 }} />
+      <Decor.Blob color={accent} size={520} x="-10%" y="55%" opacity={0.06} dur={28} blur={100} />
+      <Decor.Blob color={BLUE} size={520} x="80%" y="10%" opacity={0.06} dur={22} delay={4} blur={100} />
       <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">
           <span className="eyebrow">04 — возможности</span>
           <h2 className="display">
-            Пять прайм-фич.<br />
-            <span style={{ color: accent }}>Каждая</span> закрывает <span style={{ color: BLUE }}>один большой запрос.</span>
+            Пять прайм-фич<br />
+            <span style={{ color: accent }}>Каждая</span> закрывает <span style={{ color: BLUE }}>один большой запрос</span>
           </h2>
           <p>Всё работает на одном движке, авторизуешься один раз. Никаких отдельных приложений-сателлитов.</p>
         </div>
@@ -25,13 +25,13 @@ function Features({ accent }) {
           <FeatureCard span={3} accent={accent} variant="blue"
           title="Поиск и рекомендации"
           sub="Карта, фильтры, подборки. ИИ подсказывает, что тебе зайдёт — на основе того, куда уже ходили твои."
-          icon={<Icon.Map size={28} color="white" />}/>
+          icon={<Icon.Map size={28} color="white" />} />
 
           {/* Create events — large, orange */}
           <FeatureCard span={3} accent={accent} variant="orange"
           title="Создание событий"
           sub="Для всех — от тысячного фестиваля до квартирника. Шаблоны, закрытый режим, модерация анкет."
-          icon={<Icon.Plus size={28} color="white" />}/>
+          icon={<Icon.Plus size={28} color="white" />} />
 
           {/* Tickets / QR — medium, light */}
           <FeatureCard span={2} accent={accent} variant="light"
@@ -54,7 +54,7 @@ function Features({ accent }) {
           title="Аналитика и промо"
           sub="Метрики по каждому событию, инструменты продвижения, скоро — таргет-реклама."
           icon={<Icon.Chart size={28} color="white" />}
-          iconBg={BLUE}/>
+          iconBg={BLUE} />
         </div>
       </div>
     </section>);

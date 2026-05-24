@@ -34,52 +34,52 @@ function Market({ accent }) {
   return (
     <section id="market" ref={ref} style={{ background: '#F0EEE6', position: 'relative', overflow: 'hidden' }}>
       <Decor.Burst color={accent} size={80} dur={14}
-        style={{ position: 'absolute', top: 70, right: '6%', opacity: 0.85 }}/>
-      <Decor.Blob color={accent} size={500} x="-8%" y="65%" opacity={0.08} dur={26} blur={100}/>
-      <Decor.Blob color="#2F33F9" size={520} x="75%" y="-10%" opacity={0.08} dur={24} delay={4} blur={100}/>
+      style={{ position: 'absolute', top: 70, right: '6%', opacity: 0.85 }} />
+      <Decor.Blob color={accent} size={500} x="-8%" y="65%" opacity={0.08} dur={26} blur={100} />
+      <Decor.Blob color="#2F33F9" size={520} x="75%" y="-10%" opacity={0.08} dur={24} delay={4} blur={100} />
       <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">
           <span className="eyebrow">06 — рынок</span>
           <h2 className="display">
-            Жизнь — в моменте.<br/>
-            <span style={{ color: accent }}>Люди тратят на впечатления.</span>
+            Жизнь — в моменте<br />
+            <span style={{ color: accent }}>Люди тратят на впечатления</span>
           </h2>
           <p>Категория растёт второй год подряд, и каждый игрок добавляет ей оборотов. Мы — следующий.</p>
         </div>
 
         <div className="market-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
           <StatCard reveal="1"
-            value={`${tickets.toFixed(1)} млн`}
-            label="билетов продано Яндекс Афишей за год"
-            source="по данным РБК, 2024"
-            tint="var(--blue)"
-          />
+          value={`${tickets.toFixed(1)} млн`}
+          label="билетов продано Яндекс Афишей за год"
+          source="по данным РБК, 2024"
+          tint="var(--blue)" />
+          
           <StatCard reveal="2"
-            value={`${market.toFixed(1)} млрд ₽`}
-            label="объём российского рынка билетов на события"
-            source="данные Минкульта"
-            tint={accent}
-            highlight
-          />
+          value={`${market.toFixed(1)} млрд ₽`}
+          label="объём российского рынка билетов на события"
+          source="данные Минкульта"
+          tint={accent}
+          highlight />
+          
           <StatCard reveal="3"
-            value={`+${growth.toFixed(0)}%`}
-            label="среднегодовой рост за последние 3 года"
-            source="аналитика отрасли"
-            tint="var(--blue)"
-          />
+          value={`+${growth.toFixed(0)}%`}
+          label="среднегодовой рост за последние 3 года"
+          source="аналитика отрасли"
+          tint="var(--blue)" />
+          
         </div>
 
         <div className="reveal" data-d="4" style={{
           marginTop: 28, padding: '28px 32px', borderRadius: 22, background: 'white',
           border: '1px solid var(--line)', display: 'flex', alignItems: 'center', gap: 24,
-          flexWrap: 'wrap', justifyContent: 'space-between',
+          flexWrap: 'wrap', justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <div style={{
               width: 52, height: 52, borderRadius: 14, background: 'var(--blue)', color: 'white',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center'
             }}>
-              <Icon.Trend size={26} color="white"/>
+              <Icon.Trend size={26} color="white" />
             </div>
             <div>
               <div style={{ fontSize: 13, fontFamily: 'JetBrains Mono', color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '.08em' }}>тренд</div>
@@ -87,13 +87,13 @@ function Market({ accent }) {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14, color: 'var(--mute)' }}>
-            <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: '#2F33F9' }}/>
+            <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: '#2F33F9' }} />
             окно возможностей открыто
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
 
 function StatCard({ value, label, source, tint, highlight, reveal }) {
@@ -104,13 +104,13 @@ function StatCard({ value, label, source, tint, highlight, reveal }) {
       color: highlight ? 'white' : 'var(--ink)',
       border: highlight ? '1px solid transparent' : '1px solid var(--line)',
       position: 'relative', overflow: 'hidden',
-      boxShadow: highlight ? `0 24px 60px -22px ${tint}66` : 'none',
+      boxShadow: highlight ? `0 24px 60px -22px ${tint}66` : 'none'
     }}>
-      {highlight && (
-        <div style={{
-          position: 'absolute', inset: 0, background: `radial-gradient(80% 60% at 0% 0%, rgba(255,255,255,0.18), transparent)`,
-        }}/>
-      )}
+      {highlight &&
+      <div style={{
+        position: 'absolute', inset: 0, background: `radial-gradient(80% 60% at 0% 0%, rgba(255,255,255,0.18), transparent)`
+      }} />
+      }
       <div style={{ position: 'relative' }}>
         <div className="display" style={{ fontSize: 64, color: highlight ? 'white' : tint, lineHeight: 1 }}>{value}</div>
         <div style={{ marginTop: 16, fontSize: 16, maxWidth: 280, opacity: highlight ? 0.9 : 1 }}>{label}</div>
@@ -118,8 +118,8 @@ function StatCard({ value, label, source, tint, highlight, reveal }) {
           {source}
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
 
 window.Market = Market;

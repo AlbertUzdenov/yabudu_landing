@@ -22,17 +22,17 @@ function Hero({ accent }) {
       }} />
 
       {/* animated mesh blobs */}
-      <Decor.Blob color={accent} size={620} x="-12%" y="-15%" opacity={0.14} dur={22} blur={90}/>
-      <Decor.Blob color={BLUE} size={720} x="55%" y="40%" opacity={0.14} dur={26} delay={3} blur={110}/>
-      <Decor.Blob color={accent} size={380} x="80%" y="-10%" opacity={0.12} dur={20} delay={6} blur={70}/>
+      <Decor.Blob color={accent} size={620} x="-12%" y="-15%" opacity={0.14} dur={22} blur={90} />
+      <Decor.Blob color={BLUE} size={720} x="55%" y="40%" opacity={0.14} dur={26} delay={3} blur={110} />
+      <Decor.Blob color={accent} size={380} x="80%" y="-10%" opacity={0.12} dur={20} delay={6} blur={70} />
 
       {/* floating decorative accents */}
       <Decor.Donut size={140} color={BLUE} accent={accent} thickness={20} dur={26}
-        style={{ position: 'absolute', top: '14%', right: '4%', opacity: 0.85 }}/>
+      style={{ position: 'absolute', top: '14%', right: '4%', opacity: 0.85 }} />
       <Decor.Burst color={accent} size={70} dur={14}
-        style={{ position: 'absolute', top: '38%', left: '52%', opacity: 0.9 }}/>
+      style={{ position: 'absolute', top: '38%', left: '52%', opacity: 0.9 }} />
       <Decor.DotGrid color={accent} cols={5} rows={5} gap={12} dot={4} opacity={0.5}
-        style={{ position: 'absolute', bottom: '20%', right: '34%' }}/>
+      style={{ position: 'absolute', bottom: '20%', right: '34%' }} />
 
       <div className="wrap" style={{ position: 'relative', width: '100%', paddingTop: 120, paddingBottom: 80 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 60, alignItems: 'center' }}>
@@ -49,17 +49,17 @@ function Hero({ accent }) {
               <img
                 src="assets/hero-wordmark.svg"
                 alt="Я_БУДУ"
-                style={{ display: 'block', width: '100%', maxWidth: 640, height: 'auto' }}
-              />
+                style={{ display: 'block', width: '100%', maxWidth: 640, height: 'auto' }} />
+              
               <div className="display" style={{
                 fontSize: 'clamp(28px, 3.2vw, 52px)', fontWeight: 400, letterSpacing: '-0.01em',
-                lineHeight: 1.1, marginTop: 24, color: 'var(--ink)',
+                lineHeight: 1.1, marginTop: 24, color: 'var(--ink)'
               }}>
-                объединяем город,<br/>людей и события
+                объединяем город,<br />людей и события
               </div>
             </div>
-            <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>
-              Найди событие по вкусу или собери своё — за пять минут и без посредников. Билеты, чат, карта и друзья — всё внутри.
+            <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Найди событие по вкусу или собери своё — за пять минут и без посредников. Билеты, чат, карта и друзья — всё внутри
+
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <a className="btn btn-primary" style={{ background: accent, boxShadow: `0 8px 24px -8px ${accent}99` }}>

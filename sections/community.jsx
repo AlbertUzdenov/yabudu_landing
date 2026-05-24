@@ -56,7 +56,7 @@ function Community({ accent }) {
           <span className="eyebrow">08 — комьюнити</span>
           <h2 className="display" style={{ fontSize: 'clamp(54px, 7vw, 110px)', marginTop: 24, lineHeight: 0.98 }}>
             Найти своё —<br />
-            <span style={{ color: accent }}>просто.</span>
+            <span style={{ color: accent }}>просто</span>
           </h2>
           <p style={{ fontSize: 22, color: 'var(--mute)', marginTop: 28, maxWidth: 680, marginLeft: 'auto', marginRight: 'auto' }}>
             Мы не строим ещё один билетный сервис. Мы собираем комьюнити вокруг живых событий — и чиним то, что давно сломано.

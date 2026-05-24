@@ -35,8 +35,8 @@ function Problem({ accent }) {
         <div className="shead reveal">
           <span className="eyebrow">01 — проблема</span>
           <h2 className="display" style={{ color: "rgb(47, 51, 248)" }}>
-            События есть.<br />
-            <span style={{ color: accent }}>А ощущения — что-то не то.</span>
+            События есть<br />
+            <span style={{ color: accent }}>А ощущения — что-то не то</span>
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: 24, marginTop: 12, flexWrap: 'wrap' }}>
             <p style={{ margin: 0 }}>Спросили у обеих сторон — где болит. Послушайте, чем они живут.</p>
@@ -52,7 +52,7 @@ function Problem({ accent }) {
         </div>
 
         {/* Bento grid */}
-        <div style={{
+        <div className="problem-bento" style={{
           display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20,
           gridAutoRows: 'minmax(220px, auto)'
         }}>

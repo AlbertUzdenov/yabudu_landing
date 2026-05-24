@@ -59,8 +59,8 @@ function Monetization({ accent }) {
             }} />
             <div style={{ position: 'relative' }}>
               <span className="chip on-blue">прогноз</span>
-              <h3 className="display" style={{ fontSize: 28, marginTop: 18, lineHeight: 1.1 }}>
-                Каждое направление растёт по своей кривой.
+              <h3 className="display" style={{ fontSize: 28, marginTop: 18, lineHeight: 1.1 }}>Каждое направление растёт по своей кривой
+
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.78)', marginTop: 12, fontSize: 14 }}>
                 Сумма даёт нелинейную динамику — впервые потоки усиливают друг друга, а не конкурируют за один и тот же ресурс.
