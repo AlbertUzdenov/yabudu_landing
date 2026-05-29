@@ -131,6 +131,7 @@ function Community({ accent }) {
                 <div style={{ display: 'grid', gap: 12 }}>
                   <input
                   type="text"
+                  id="community-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Как тебя зовут?"

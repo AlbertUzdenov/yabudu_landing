@@ -19,9 +19,7 @@ function Hero({ accent }) {
 
       {/* floating decorative accents */}
       <Decor.Burst color={accent} size={70} dur={14}
-      style={{ position: 'absolute', top: '38%', left: '52%', opacity: 0.9 }} />
-      <Decor.DotGrid color={accent} cols={5} rows={5} gap={12} dot={4} opacity={0.5}
-      style={{ position: 'absolute', bottom: '20%', right: '34%' }} />
+      style={{ position: 'absolute', top: '7%', right: '5%', opacity: 0.9 }} />
 
       <div className="wrap" style={{ position: 'relative', width: '100%', paddingTop: 56, paddingBottom: 80 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 60, alignItems: 'center' }}>
@@ -46,7 +44,36 @@ function Hero({ accent }) {
             <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Ищи события поблизости на карте, организовывай свои и узнавай, где будут сегодня твои друзья.
 
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start' }}>
+              <a
+                href="#community"
+                className="btn btn-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('community');
+                  if (!el) return;
+                  const target = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - 20);
+                  const start = window.pageYOffset;
+                  const dist = target - start;
+                  const dur = 650;
+                  let t0 = null;
+                  const ease = (x) => 1 - Math.pow(1 - x, 3);
+                  const step = (ts) => {
+                    if (t0 === null) t0 = ts;
+                    const p = Math.min(1, (ts - t0) / dur);
+                    window.scrollTo(0, start + dist * ease(p));
+                    if (p < 1) requestAnimationFrame(step);
+                    else {
+                      const inp = document.getElementById('community-name');
+                      if (inp) inp.focus({ preventScroll: true });
+                    }
+                  };
+                  requestAnimationFrame(step);
+                }}
+                style={{ background: accent, boxShadow: `0 8px 24px -8px ${accent}99`, fontSize: 18, padding: '18px 30px', gap: 10 }}>
+                <span>Стань первым</span>
+                <Icon.Arrow size={18} color="white" />
+              </a>
               <div style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '.08em', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
                 <span></span>
                 <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
@@ -136,10 +163,10 @@ function HeroMap({ accent, t }) {
         const anchor = p.x <= 33 ? 'start' : p.x >= 62 ? 'end' : 'center';
         const tx = anchor === 'center' ? '-50%' : anchor === 'end' ? '-100%' : '0%';
         const tailStyle = anchor === 'center' ?
-        { marginLeft: '50%', transform: 'rotate(45deg) translateX(-50%)' } :
+        { marginLeft: 'calc(50% - 6px)', transform: 'rotate(45deg)' } :
         anchor === 'end' ?
         { marginLeft: 'calc(100% - 24px)', transform: 'rotate(45deg)' } :
-        { marginLeft: 12, transform: 'rotate(45deg)' };
+        { marginLeft: 18, transform: 'rotate(45deg)' };
         return (
         <div key={i} style={{
           position: 'absolute', left: p.x + '%', top: p.y + '%', transform: `translate(${tx}, -100%)`
@@ -153,7 +180,7 @@ function HeroMap({ accent, t }) {
           display: 'flex', alignItems: 'center', gap: 8,
           boxShadow: '0 12px 28px -8px rgba(10,10,30,0.18)',
           border: p.big ? `2px solid ${p.color}` : '1px solid var(--line)',
-          marginBottom: 6, whiteSpace: 'nowrap'
+          marginBottom: 0, whiteSpace: 'nowrap'
         }}>
             <div style={{
             width: 28, height: 28, borderRadius: 8, background: p.color,
@@ -168,7 +195,7 @@ function HeroMap({ accent, t }) {
           </div>
           <div style={{
           width: 12, height: 12, background: 'white', ...tailStyle,
-          marginTop: -8
+          marginTop: -6
         }} />
           </div>
         </div>);

@@ -3,7 +3,7 @@ function Benefits({ accent }) {
   const BLUE = '#2F33F9';
   const [side, setSide] = React.useState('participant');
   const [touched, setTouched] = React.useState(false);
-  const pick = (s) => { setSide(s); setTouched(true); };
+  const pick = (s) => {setSide(s);setTouched(true);};
 
   const participant = {
     badge: 'Участникам',
@@ -53,8 +53,7 @@ function Benefits({ accent }) {
         <div className="shead reveal">
           <span className="eyebrow">05 — польза</span>
           <h2 className="display">
-            Для кого —<br />
-            <span style={{ color: accent }}>и зачем</span>
+            Для кого <span style={{ color: accent }}>и зачем</span>
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
             <p style={{ margin: 0 }}></p>
@@ -150,9 +149,8 @@ function BenefitsStat({ data, sideColor }) {
       </div>
 
       <div style={{ position: 'relative' }}>
-        <h3 className="display" style={{ fontSize: 'clamp(28px, 3.4vw, 42px)', lineHeight: 1.05 }}>
-          {data.headline}<br />
-          <span style={{ opacity: 0.9 }}>{data.headlineAccent}</span>
+        <h3 className="display" style={{ fontSize: 'clamp(22px, 2.2vw, 30px)', lineHeight: 1.1, whiteSpace: 'nowrap' }}>
+          {data.headline} <span style={{ opacity: 0.9 }}>{data.headlineAccent}</span>
         </h3>
         <div style={{
           marginTop: 16, fontSize: 14, fontFamily: 'JetBrains Mono',
