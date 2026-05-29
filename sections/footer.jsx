@@ -24,7 +24,7 @@ function Footer({ accent }) {
             style={{ position: 'absolute', top: -30, right: 80 }}/>
           <Decor.Squiggle color="rgba(255,255,255,0.35)" width={220} height={50} strokeWidth={5} dur={9}
             style={{ position: 'absolute', bottom: 30, left: 30 }}/>
-          <div className="footer-cta-grid" style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 40, alignItems: 'center' }}>
+          <div className="footer-cta-grid" style={{ position: 'relative' }}>
             <div>
               <h3 className="display" style={{ fontSize: 'clamp(38px, 5vw, 64px)', color: 'white', lineHeight: 1 }}>
                 Зарабатывать на<br/>мероприятиях<br/>может каждый
@@ -32,17 +32,6 @@ function Footer({ accent }) {
               <p style={{ fontSize: 19, color: 'rgba(255,255,255,0.88)', marginTop: 20, maxWidth: 480 }}>
                 Опубликуй первое событие за 3 минуты. Без модерации фриланс-биржи и пакета документов.
               </p>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <a className="btn" style={{ background: 'white', color: 'var(--ink)', justifyContent: 'space-between', padding: '22px 28px', fontSize: 18 }}>
-                <span>Создать первое событие</span>
-                <Icon.Arrow size={20} color="var(--ink)"/>
-              </a>
-              <div style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '.08em', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                <span>без модерации</span>
-                <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(255,255,255,0.5)' }} />
-                <span>выплаты в день события</span>
-              </div>
             </div>
           </div>
         </div>

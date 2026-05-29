@@ -9,22 +9,13 @@ function Hero({ accent }) {
 
   return (
     <section id="hero" style={{
-      padding: 0, minHeight: '100vh', background: 'var(--paper)', color: 'var(--ink)',
+      padding: 0, minHeight: '100vh', background: '#ffffff', color: 'var(--ink)',
       position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center'
     }}>
-      {/* subtle grid backdrop */}
-      <div style={{
-        position: 'absolute', inset: 0, opacity: 0.5,
-        backgroundImage: 'radial-gradient(rgba(10,10,14,0.10) 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
-        maskImage: 'radial-gradient(80% 70% at 50% 50%, black, transparent)',
-        WebkitMaskImage: 'radial-gradient(80% 70% at 50% 50%, black, transparent)'
-      }} />
-
       {/* animated mesh blobs */}
-      <Decor.Blob color={accent} size={620} x="-12%" y="-15%" opacity={0.14} dur={22} blur={90} />
-      <Decor.Blob color={BLUE} size={720} x="55%" y="40%" opacity={0.14} dur={26} delay={3} blur={110} />
-      <Decor.Blob color={accent} size={380} x="80%" y="-10%" opacity={0.12} dur={20} delay={6} blur={70} />
+      <Decor.Blob color={accent} size={560} x="-16%" y="-20%" opacity={0.10} dur={22} blur={100} />
+      <Decor.Blob color={BLUE} size={680} x="68%" y="62%" opacity={0.09} dur={26} delay={3} blur={120} />
+      <Decor.Blob color={accent} size={360} x="84%" y="-12%" opacity={0.09} dur={20} delay={6} blur={80} />
 
       {/* floating decorative accents */}
       <Decor.Burst color={accent} size={70} dur={14}
@@ -38,10 +29,6 @@ function Hero({ accent }) {
           <div className="reveal in hero-left">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
               <span className="chip">iOS · Android</span>
-              <span className="chip" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: accent, display: 'inline-block' }} />
-                бета-доступ открыт
-              </span>
             </div>
             <div style={{ marginBottom: 28 }}>
               <img
@@ -50,41 +37,22 @@ function Hero({ accent }) {
                 style={{ display: 'block', width: '100%', maxWidth: 640, height: 'auto' }} />
               
               <div className="display" style={{
-                fontSize: 'clamp(28px, 3.2vw, 52px)', fontWeight: 400, letterSpacing: '-0.01em',
-                lineHeight: 1.1, marginTop: 24, color: 'var(--ink)'
+                fontSize: 'clamp(26px, 2.6vw, 40px)', fontWeight: 500, letterSpacing: '-0.01em',
+                lineHeight: 1.18, marginTop: 24, color: 'var(--ink)'
               }}>
-                События, билеты и компания —<br />в одном приложении
+                <span style={{ color: 'rgb(10, 10, 14)' }}>События, билеты и люди</span><br /><span style={{ color: 'rgb(254, 92, 29)' }}>в одном приложении</span>
               </div>
             </div>
-            <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Афиша на карте, кто из своих идёт, билет — в один тап. От «куда сходить» до «спасибо за вечер» — внутри одного экрана.
+            <p style={{ fontSize: 20, maxWidth: 540, color: 'var(--mute)', marginBottom: 40 }}>Ищи события поблизости на карте, организовывай свои и узнавай, где будут сегодня твои друзья.
 
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                <a className="btn btn-primary" style={{ background: accent, boxShadow: `0 8px 24px -8px ${accent}99`, gap: 12 }}>
-                  <svg width="18" height="22" viewBox="0 0 18 22" fill="none" style={{ marginRight: -2 }}>
-                    <path d="M14.94 11.41c-.02-2.43 1.99-3.6 2.08-3.66-1.13-1.66-2.9-1.88-3.53-1.91-1.5-.15-2.93.88-3.7.88-.76 0-1.94-.86-3.19-.84-1.64.03-3.15.95-3.99 2.42-1.7 2.95-.43 7.32 1.22 9.72.8 1.18 1.76 2.5 3.01 2.45 1.21-.05 1.67-.78 3.13-.78 1.45 0 1.87.78 3.15.75 1.3-.02 2.12-1.19 2.92-2.38.92-1.37 1.3-2.7 1.32-2.77-.03-.01-2.53-.97-2.55-3.86zm-2.42-7.1c.66-.83 1.11-1.96.99-3.1-.96.04-2.13.65-2.82 1.46-.61.72-1.16 1.89-1.01 2.99 1.08.08 2.18-.55 2.84-1.35z" fill="white"/>
-                  </svg>
-                  <span>iOS</span>
-                </a>
-                <a className="btn" style={{
-                  background: 'transparent',
-                  color: 'var(--ink)',
-                  border: '1.5px solid rgba(10,10,14,0.18)',
-                  gap: 12,
-                }}>
-                  <svg width="18" height="20" viewBox="0 0 18 20" fill="none" style={{ marginRight: -2 }}>
-                    <path d="M.61 19.39c.21.12.45.18.71.18.27 0 .54-.07.78-.22l11.3-6.52L9.85 9.7.61 19.39zM16.55 8.83 13.7 7.18l-3.21 3.21 3.21 3.21 2.85-1.65a1.42 1.42 0 0 0 0-2.46.71.71 0 0 0 0-.66zM2.1.43A1.42 1.42 0 0 0 .56.43c-.24.14-.4.4-.4.68v17.72L9.4 9.7.16.43zM12.42 6.6 1.32.07A1.45 1.45 0 0 0 .8.01l8.84 8.84L12.42 6.6z" fill="currentColor"/>
-                  </svg>
-                  <span>Android</span>
-                </a>
-              </div>
               <div style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)', textTransform: 'uppercase', letterSpacing: '.08em', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                <span>ранний доступ</span>
+                <span></span>
                 <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
                 <span>бесплатно</span>
                 <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--mute)' }} />
-                <span>без рекламы внутри</span>
+                <span></span>
               </div>
             </div>
           </div>
@@ -127,7 +95,7 @@ function HeroMap({ accent, t }) {
   const BLUE = '#2F33F9';
   const pins = [
   { x: 22, y: 24, label: 'Концерт', when: 'Сегодня · 20:00', color: BLUE },
-  { x: 64, y: 18, label: 'Стендап', when: 'Завтра · 19:30', color: accent, big: true },
+  { x: 64, y: 18, label: 'Стендап', when: 'Завтра · 19:30', color: accent },
   { x: 78, y: 56, label: 'Маркет', when: 'Сб · 12:00', color: BLUE },
   { x: 32, y: 68, label: 'Лекция', when: 'Ср · 18:00', color: accent },
   { x: 50, y: 42, label: 'Вечеринка', when: 'Пт · 22:00', color: BLUE }];
@@ -164,12 +132,22 @@ function HeroMap({ accent, t }) {
       }} />
 
       {/* pins */}
-      {pins.map((p, i) =>
-      <div key={i} style={{
-        position: 'absolute', left: p.x + '%', top: p.y + '%', transform: 'translate(-50%, -100%)',
-        animation: `float ${3 + i * 0.4}s ease-in-out infinite`,
-        animationDelay: `${i * 0.3}s`
-      }}>
+      {pins.map((p, i) => {
+        const anchor = p.x <= 33 ? 'start' : p.x >= 62 ? 'end' : 'center';
+        const tx = anchor === 'center' ? '-50%' : anchor === 'end' ? '-100%' : '0%';
+        const tailStyle = anchor === 'center' ?
+        { marginLeft: '50%', transform: 'rotate(45deg) translateX(-50%)' } :
+        anchor === 'end' ?
+        { marginLeft: 'calc(100% - 24px)', transform: 'rotate(45deg)' } :
+        { marginLeft: 12, transform: 'rotate(45deg)' };
+        return (
+        <div key={i} style={{
+          position: 'absolute', left: p.x + '%', top: p.y + '%', transform: `translate(${tx}, -100%)`
+        }}>
+          <div style={{
+          animation: `float ${3 + i * 0.4}s ease-in-out infinite`,
+          animationDelay: `${i * 0.3}s`
+        }}>
           <div style={{
           background: 'white', color: 'var(--ink)', borderRadius: 14, padding: '8px 12px',
           display: 'flex', alignItems: 'center', gap: 8,
@@ -189,11 +167,13 @@ function HeroMap({ accent, t }) {
             </div>
           </div>
           <div style={{
-          width: 12, height: 12, background: 'white', transform: 'rotate(45deg) translateX(-50%)',
-          marginTop: -8, marginLeft: '50%'
+          width: 12, height: 12, background: 'white', ...tailStyle,
+          marginTop: -8
         }} />
-        </div>
-      )}
+          </div>
+        </div>);
+
+      })}
 
       {/* Floating card — event detail */}
       <div style={{

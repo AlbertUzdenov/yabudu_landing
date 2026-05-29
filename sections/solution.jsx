@@ -2,9 +2,9 @@
 function Solution({ accent }) {
   const BLUE = '#2F33F9';
   const items = [
-  { t: 'Афиша на карте', d: 'Все события вокруг тебя — в одной ленте и на одной карте. С фильтрами, подборками и ИИ-рекомендациями.', icon: <Icon.Map size={28} color="white" />, tint: accent, dark: true },
-  { t: 'Друзья и общение', d: 'Видишь, куда идут твои. Купил билет — открылся чат события. Незнакомцы перестают быть незнакомцами до того, как ты пришёл.', icon: <Icon.Chat size={28} color="white" />, tint: BLUE, dark: true },
-  { t: 'Билеты и организация', d: 'QR на входе, моментальная сверка, мгновенные выплаты организаторам. Без бумажек, без посредников, с честной комиссией.', icon: <Icon.Ticket size={28} color="white" />, tint: 'var(--ink)', dark: false }];
+  { t: 'Афиша на карте', d: 'Все события вокруг тебя — в одной ленте и на одной карте. С фильтрами, подборками и рекомендациями.', icon: <Icon.Map size={28} color="white" />, tint: accent, dark: true },
+  { t: 'Друзья и общение', d: 'Видишь, куда идут твои друзья. Находишь людей со схожими интересами среди тех, кто идет на мероприятие в общем чате. Можешь подписаться и следить за событиями понравившегося организатора.', icon: <Icon.Chat size={28} color="white" />, tint: BLUE, dark: true },
+  { t: 'Билеты и организация', d: 'QR на входе, встроенная аналитика, мгновенные выплаты после события, алгоритмы настроены на вашу аудиторию. Меньше очередей, меньше ошибок, меньше ручной работы. Свои люди!', icon: <Icon.Ticket size={28} color="white" />, tint: 'var(--ink)', dark: false }];
 
   return (
     <section id="solution" style={{ background: 'var(--paper-2)', position: 'relative', overflow: 'hidden' }}>
@@ -17,9 +17,9 @@ function Solution({ accent }) {
           <span className="eyebrow">02 — решение</span>
           <h2 className="display">
             Всё в одном месте<br />
-            <span style={{ color: accent }}>Без вкладок и танцев с бубном</span>
+            <span style={{ color: accent }}>Без проблем и танцев с бубном</span>
           </h2>
-          <p>Три слоя, которые работают вместе: где, с кем и как попасть. Один экран — одно решение.</p>
+          <p>Мы продумали все, чтобы люди могли найти классные события и новые знакомства, а организаторы свою публику</p>
         </div>
 
         <div className="sol-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>

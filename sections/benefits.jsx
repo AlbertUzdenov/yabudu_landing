@@ -2,35 +2,37 @@
 function Benefits({ accent }) {
   const BLUE = '#2F33F9';
   const [side, setSide] = React.useState('participant');
+  const [touched, setTouched] = React.useState(false);
+  const pick = (s) => { setSide(s); setTouched(true); };
 
   const participant = {
     badge: 'Участникам',
-    headline: 'Каждый вечер —',
-    headlineAccent: 'как первый',
+    headline: 'Найди свое',
+    headlineAccent: 'событие',
     accentColor: BLUE,
     stat: '5',
     statLabel: 'причин остаться',
     items: [
-    { t: 'Афиша на карте', d: 'События вокруг и в твоё окно времени', icon: <Icon.Map size={20} color="white" /> },
-    { t: 'Кошелёк билетов', d: 'Все билеты на одном экране', icon: <Icon.Ticket size={20} color="white" /> },
-    { t: 'Социальный слой', d: 'Видно, кто из своих идёт', icon: <Icon.Users size={20} color="white" /> },
+    { t: 'Афиша на карте', d: 'Фильтры по интересам и формату', icon: <Icon.Map size={20} color="white" /> },
+    { t: 'Все билеты в одном месте', d: 'Теперь ты точно не забудешь о мероприятии и легко найдешь билет', icon: <Icon.Ticket size={20} color="white" /> },
+    { t: 'Коммьюнити', d: 'Видишь активность друзей и можешь подписаться на понравившегося организатора', icon: <Icon.Users size={20} color="white" /> },
     { t: 'Повод выйти', d: 'Лента сама подкидывает идеи', icon: <Icon.Sparkle size={20} color="white" /> },
-    { t: 'Общение до и после', d: 'Чаты события — новые знакомства', icon: <Icon.Chat size={20} color="white" /> }]
+    { t: 'Общение до и после', d: 'Новые знакомства в чатах события', icon: <Icon.Chat size={20} color="white" /> }]
 
   };
 
   const organizer = {
     badge: 'Организаторам',
-    headline: 'Зарабатывать —',
-    headlineAccent: 'не отрываясь от смысла',
+    headline: 'Найди своих',
+    headlineAccent: 'людей',
     accentColor: accent,
     stat: '5',
     statLabel: 'инструментов в одном месте',
     items: [
     { t: 'Своя аудитория', d: 'Подписчики, постоянные гости', icon: <Icon.Users size={20} color="white" /> },
-    { t: 'QR на входе', d: 'Сверка за полсекунды', icon: <Icon.QR size={20} color="white" /> },
+    { t: 'QR на входе', d: 'Проверка билета за считанные секунды', icon: <Icon.QR size={20} color="white" /> },
     { t: 'Чаты с гостями', d: 'Всё общение в одном месте', icon: <Icon.Chat size={20} color="white" /> },
-    { t: 'Аналитика', d: 'Кто, откуда, что покупает', icon: <Icon.Chart size={20} color="white" /> },
+    { t: 'Аналитика', d: 'Знаешь кто, откуда и что покупает', icon: <Icon.Chart size={20} color="white" /> },
     { t: 'Промо-инструменты', d: 'Подборки, скоро — таргет', icon: <Icon.Trend size={20} color="white" /> }]
 
   };
@@ -51,11 +53,11 @@ function Benefits({ accent }) {
         <div className="shead reveal">
           <span className="eyebrow">05 — польза</span>
           <h2 className="display">
-            Кому это —<br />
-            <span style={{ color: accent }}>и за чем</span>
+            Для кого —<br />
+            <span style={{ color: accent }}>и зачем</span>
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-            <p style={{ margin: 0 }}>Одна платформа — две выгоды. Никто не остаётся в проигрыше.</p>
+            <p style={{ margin: 0 }}></p>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)',
@@ -64,8 +66,9 @@ function Benefits({ accent }) {
               <Icon.Arrow size={14} color="var(--mute)" />
               <span>выбери сторону</span>
             </div>
+            <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
             <div className="toggle toggle-switch" role="tablist" aria-label="Точка зрения">
-              <button onClick={() => setSide('participant')} className={side === 'participant' ? 'active' : ''} aria-pressed={side === 'participant'}>
+              <button onClick={() => pick('participant')} className={side === 'participant' ? 'active' : ''} aria-pressed={side === 'participant'}>
                 <span>Участникам</span>
               </button>
               <span className="toggle-swap" aria-hidden="true">
@@ -73,9 +76,11 @@ function Benefits({ accent }) {
                   <path d="M7 7h12M7 7l3-3M7 7l3 3M17 17H5M17 17l-3 3M17 17l-3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-              <button onClick={() => setSide('organizer')} className={side === 'organizer' ? 'active' : ''} aria-pressed={side === 'organizer'}>
+              <button onClick={() => pick('organizer')} className={side === 'organizer' ? 'active' : ''} aria-pressed={side === 'organizer'}>
                 <span>Организаторам</span>
               </button>
+            </div>
+            {!touched && <Decor.ToggleHint color={accent} />}
             </div>
           </div>
         </div>

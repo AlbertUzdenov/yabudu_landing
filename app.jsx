@@ -29,10 +29,7 @@ function App() {
       <Problem accent={accent}/>
       <Solution accent={accent}/>
       <Flow accent={accent}/>
-      <Features accent={accent}/>
       <Benefits accent={accent}/>
-      <Market accent={accent}/>
-      <Monetization accent={accent}/>
       <Community accent={accent}/>
       <FAQ accent={accent}/>
       <Footer accent={accent}/>

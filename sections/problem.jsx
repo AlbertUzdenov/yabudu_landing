@@ -2,19 +2,21 @@
 function Problem({ accent }) {
   const BLUE = '#2F33F9';
   const [side, setSide] = React.useState('participant');
+  const [touched, setTouched] = React.useState(false);
+  const pick = (s) => { setSide(s); setTouched(true); };
 
   const participant = [
-  { quote: 'Куда сходить?', tag: 'Хаос', note: 'Десять приложений и пабликов — единого ответа нет.', icon: <Icon.Map size={20} color="currentColor" /> },
-  { quote: 'А кто там будет?', tag: 'Никого', note: 'Лента-каша. Не видно, кто из своих идёт.', icon: <Icon.Users size={20} color="currentColor" /> },
+  { quote: 'Куда сходить?', tag: 'Хаос', note: 'События разбросаны по сайтам, соцсетям и чатам. Но что подойдет именно тебе?', icon: <Icon.Map size={20} color="currentColor" /> },
+  { quote: 'А кто там будет?', tag: 'Никого', note: 'Сложно понять, какая на мероприятии будет публика и атмосфера. Вдруг это событие не для меня?', icon: <Icon.Users size={20} color="currentColor" /> },
   { quote: 'Где мой билет?', tag: 'Потеря', note: 'PDF в почте, скрин в галерее, ссылка в чате.', icon: <Icon.Ticket size={20} color="currentColor" /> },
   { quote: 'Один?..', tag: 'Соло', note: 'Друзья заняты, а одному — неловко.', icon: <Icon.Heart size={20} color="currentColor" /> }];
 
 
   const organizer = [
-  { quote: 'Где моя аудитория?', tag: 'Промах', note: 'Реклама стреляет в воздух, не доходит до своих.', icon: <Icon.Sparkle size={20} color="currentColor" /> },
-  { quote: 'Сколько вернётся?', tag: 'Слепота', note: 'Нет аналитики — кто пришёл, что покупает, откуда узнал.', icon: <Icon.Chart size={20} color="currentColor" /> },
+  { quote: 'Где моя аудитория?', tag: 'Промах', note: 'Реклама стреляет в воздух, не доходя до своих.', icon: <Icon.Sparkle size={20} color="currentColor" /> },
+  { quote: 'Как прошло?', tag: 'Слепота', note: 'Нет аналитики - кто пришел, что купил, откуда узнал', icon: <Icon.Chart size={20} color="currentColor" /> },
   { quote: 'Очередь на входе', tag: 'Стыд', note: 'Сверка по списку, потерянные брони, обиженные гости.', icon: <Icon.QR size={20} color="currentColor" /> },
-  { quote: 'А когда деньги?', tag: 'Хвост', note: 'Большие комиссии, выплата через неделю, скрытые условия.', icon: <Icon.Money size={20} color="currentColor" /> }];
+  { quote: 'А когда деньги?', tag: 'Хвост', note: 'Большие комиссии и сервисные сборы, выплата через месяц после мероприятия.', icon: <Icon.Money size={20} color="currentColor" /> }];
 
 
   const items = side === 'participant' ? participant : organizer;
@@ -35,18 +37,27 @@ function Problem({ accent }) {
         <div className="shead reveal">
           <span className="eyebrow">01 — проблема</span>
           <h2 className="display" style={{ color: "rgb(47, 51, 248)" }}>
-            События есть<br />
-            <span style={{ color: accent }}>А ощущения — что-то не то</span>
+            Вокруг столько событий<br />
+            <span style={{ color: accent }}>Но все не то!</span>
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: 24, marginTop: 12, flexWrap: 'wrap' }}>
-            <p style={{ margin: 0 }}>Спросили у обеих сторон — где болит. Послушайте, чем они живут.</p>
-            <div className="toggle">
-              <button onClick={() => setSide('participant')} className={side === 'participant' ? 'active' : ''}>
-                Участник
+            <p style={{ margin: 0 }}>Пока ты не можешь найти событие по вкусу, организатор мероприятия мечты не может найти тебя.</p>
+            <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+            <div className="toggle toggle-switch" role="tablist" aria-label="Точка зрения">
+              <button onClick={() => pick('participant')} className={side === 'participant' ? 'active' : ''} aria-pressed={side === 'participant'}>
+                <span style={{ fontSize: "17px" }}>Участник</span>
               </button>
-              <button onClick={() => setSide('organizer')} className={side === 'organizer' ? 'active' : ''}>
-                Организатор
+              <span className="toggle-swap" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 7h12M7 7l3-3M7 7l3 3M17 17H5M17 17l-3 3M17 17l-3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <button onClick={() => pick('organizer')} className={side === 'organizer' ? 'active' : ''} aria-pressed={side === 'organizer'}>
+                <span style={{ fontSize: "17px" }}>Организатор</span>
               </button>
+            </div>
+            {!touched &&
+            <Decor.ToggleHint color={accent} />}
             </div>
           </div>
         </div>

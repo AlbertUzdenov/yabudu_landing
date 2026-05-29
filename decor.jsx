@@ -143,4 +143,23 @@ decorStyle.textContent = `
 `;
 document.head.appendChild(decorStyle);
 
-window.Decor = { Blob, Squiggle, Burst, Rings, DotGrid, Donut, Stripes, MeshBg, WaveDivider };
+window.Decor = { Blob, Squiggle, Burst, Rings, DotGrid, Donut, Stripes, MeshBg, WaveDivider, ToggleHint };
+
+// Animated "tap me" arrow hint that points back at a toggle
+function ToggleHint({ color = ORANGE, label = 'нажми', style = {} }) {
+  return (
+    <div className="toggle-hint" aria-hidden="true" style={{
+      position: 'absolute', left: 'calc(100% + 14px)', top: '50%', transform: 'translateY(-50%)',
+      display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap', color, pointerEvents: 'none', ...style
+    }}>
+      <span className="toggle-hint-inner" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+        <svg width="58" height="30" viewBox="0 0 58 30" fill="none">
+          <path d="M56 18 C42 26, 22 26, 6 15" stroke={color} strokeWidth="2.4" strokeLinecap="round" fill="none" />
+          <path d="M6 15 L10.4 23.6 M6 15 L15 16.2" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+        <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, textTransform: 'uppercase', letterSpacing: '.08em', fontWeight: 600 }}>{label}</span>
+      </span>
+    </div>);
+
+}
+window.Decor.ToggleHint = ToggleHint;
