@@ -62,9 +62,10 @@ function Community({ accent }) {
 
   return (
     <section id="community" style={{
-      background: 'transparent', position: 'relative', overflow: 'hidden'
+      background: 'transparent', position: 'relative'
     }}>
       {/* Floating avatars background */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, opacity: 0.85 }}>
         {blobs.map((b, i) =>
         <div key={i} style={{
@@ -88,10 +89,13 @@ function Community({ accent }) {
           background: 'radial-gradient(60% 55% at 50% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.4) 65%, transparent 100%)'
         }} />
       </div>
+      </div>
 
       <div className="wrap" style={{ position: 'relative' }}>
+        <div className="shead-pin">
+          <div className="shead-tag"><span className="shead-num">05</span><span className="shead-name">Комьюнити</span></div>
+        </div>
         <div className="reveal" style={{ textAlign: 'center', maxWidth: 880, margin: '0 auto 64px' }}>
-          <span className="eyebrow">08 — комьюнити</span>
           <h2 className="display" style={{ fontSize: 'clamp(54px, 7vw, 110px)', marginTop: 24, lineHeight: 0.98 }}>
             Найти своё —<br />
             <span style={{ color: accent }}>просто</span>

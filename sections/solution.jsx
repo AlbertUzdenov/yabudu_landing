@@ -7,12 +7,14 @@ function Solution({ accent }) {
   { t: 'Билеты и организация', d: 'QR на входе, встроенная аналитика, мгновенные выплаты после события, алгоритмы настроены на вашу аудиторию. Меньше очередей, меньше ошибок, меньше ручной работы. Свои люди!', icon: <Icon.Ticket size={28} color="white" />, tint: 'var(--ink)', dark: false }];
 
   return (
-    <section id="solution" style={{ background: 'transparent', position: 'relative', overflow: 'hidden' }}>
+    <section id="solution" style={{ background: 'transparent', position: 'relative' }}>
       <Decor.Squiggle color={accent} width={220} height={56} strokeWidth={4} dur={11}
       style={{ position: 'absolute', top: 100, right: '7%', opacity: 0.6 }} />
       <div className="wrap" style={{ position: 'relative' }}>
+        <div className="shead-pin">
+          <div className="shead-tag"><span className="shead-num">02</span><span className="shead-name">Решение</span></div>
+        </div>
         <div className="shead reveal">
-          <span className="eyebrow">02 — решение</span>
           <h2 className="display">
             Всё в одном месте<br />
             <span style={{ color: accent }}>Без проблем и танцев с бубном</span>

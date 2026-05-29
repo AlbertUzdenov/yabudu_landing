@@ -27,20 +27,14 @@ function Problem({ accent }) {
   const variants = ['ink', 'orange', 'blue', 'paper'];
 
   return (
-    <section id="problem" style={{ position: 'relative', overflow: 'hidden' }}>
+    <section id="problem" style={{ position: 'relative' }}>
       <Decor.Burst color={accent} size={64} dur={14}
       style={{ position: 'absolute', top: 80, right: '6%', opacity: 0.7 }} />
 
       <div className="wrap" style={{ position: 'relative' }}>
-        <div className="shead reveal">
-          <span className="eyebrow">01 — проблема</span>
-          <h2 className="display" style={{ color: "rgb(47, 51, 248)" }}>
-            Вокруг столько событий<br />
-            <span style={{ color: accent }}>Но все не то!</span>
-          </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 24, marginTop: 12, flexWrap: 'wrap' }}>
-            <p style={{ margin: 0 }}>Пока ты не можешь найти событие по вкусу, организатор мероприятия мечты не может найти тебя.</p>
-            <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+        <div className="shead-pin">
+          <div className="shead-tag"><span className="shead-num">01</span><span className="shead-name">Проблема</span></div>
+          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start', marginTop: -8 }}>
             <div className="toggle toggle-switch" role="tablist" aria-label="Точка зрения">
               <button onClick={() => pick('participant')} className={side === 'participant' ? 'active' : ''} aria-pressed={side === 'participant'}>
                 <span style={{ fontSize: "17px" }}>Участник</span>
@@ -56,8 +50,14 @@ function Problem({ accent }) {
             </div>
             {!touched &&
             <Decor.ToggleHint color={accent} />}
-            </div>
           </div>
+        </div>
+        <div className="shead reveal">
+          <h2 className="display" style={{ color: "rgb(47, 51, 248)" }}>
+            Вокруг столько событий<br />
+            <span style={{ color: accent }}>Но все не то!</span>
+          </h2>
+          <p style={{ margin: 0 }}>Пока ты не можешь найти событие по вкусу, организатор мероприятия мечты не может найти тебя.</p>
         </div>
 
         {/* Bento grid */}

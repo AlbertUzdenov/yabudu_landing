@@ -41,20 +41,16 @@ function Benefits({ accent }) {
   const sideColor = data.accentColor;
 
   return (
-    <section id="benefits" style={{ position: 'relative', overflow: 'hidden' }}>
+    <section id="benefits" style={{ position: 'relative' }}>
       <Decor.Squiggle color="#2F33F9" width={200} height={50} strokeWidth={4} dur={9}
       style={{ position: 'absolute', top: 80, left: '6%', opacity: 0.5 }} />
       <Decor.DotGrid color={accent} cols={6} rows={6} gap={12} dot={4} opacity={0.4}
       style={{ position: 'absolute', top: 110, right: '4%' }} />
 
       <div className="wrap" style={{ position: 'relative' }}>
-        <div className="shead reveal">
-          <span className="eyebrow">05 — польза</span>
-          <h2 className="display">
-            Для кого <span style={{ color: accent }}>и зачем</span>
-          </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-            <p style={{ margin: 0 }}></p>
+        <div className="shead-pin">
+          <div className="shead-tag"><span className="shead-num">04</span><span className="shead-name">Польза</span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', marginTop: -8, alignSelf: 'flex-start' }}>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)',
@@ -80,6 +76,11 @@ function Benefits({ accent }) {
             {!touched && <Decor.ToggleHint color={accent} />}
             </div>
           </div>
+        </div>
+        <div className="shead reveal">
+          <h2 className="display">
+            Для кого <span style={{ color: accent }}>и зачем</span>
+          </h2>
         </div>
 
         {/* Hero card with stat + grid of tiles */}

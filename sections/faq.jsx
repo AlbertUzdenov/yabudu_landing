@@ -37,15 +37,17 @@ function FAQ({ accent }) {
 
 
   return (
-    <section id="faq" style={{ background: 'transparent', position: 'relative', overflow: 'hidden' }}>
+    <section id="faq" style={{ background: 'transparent', position: 'relative' }}>
       <Decor.Squiggle color={BLUE} width={200} height={50} strokeWidth={4} dur={11}
       style={{ position: 'absolute', top: 70, right: '8%', opacity: 0.45 }} />
       <Decor.DotGrid color={accent} cols={5} rows={5} gap={12} dot={4} opacity={0.35}
       style={{ position: 'absolute', bottom: 110, left: '6%' }} />
 
       <div className="wrap" style={{ position: 'relative' }}>
+        <div className="shead-pin">
+          <div className="shead-tag"><span className="shead-num">06</span><span className="shead-name">Вопросы</span></div>
+        </div>
         <div className="shead reveal" style={{ maxWidth: 880 }}>
-          <span className="eyebrow">09 — вопросы</span>
           <h2 className="display">
             Ответы<br />
             <span style={{ color: accent }}>на ваши вопросы</span>

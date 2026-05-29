@@ -5,10 +5,7 @@ function Nav({ accent }) {
     { id: 'problem',   label: 'Проблема' },
     { id: 'solution',  label: 'Решение' },
     { id: 'flow',      label: 'Сценарий' },
-    { id: 'features',  label: 'Возможности' },
     { id: 'benefits',  label: 'Польза' },
-    { id: 'market',    label: 'Рынок' },
-    { id: 'money',     label: 'Монетизация' },
     { id: 'community', label: 'Комьюнити' },
     { id: 'faq',       label: 'FAQ' },
   ];

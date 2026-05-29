@@ -26,16 +26,11 @@ function Flow({ accent }) {
   const steps = side === 'participant' ? participantSteps : organizerSteps;
 
   return (
-    <section id="flow" style={{ background: 'transparent', position: 'relative', overflow: 'hidden' }}>
+    <section id="flow" style={{ background: 'transparent', position: 'relative' }}>
       <div className="wrap" style={{ position: 'relative' }}>
-        <div className="shead reveal">
-          <span className="eyebrow">03 — сценарий</span>
-          <h2 className="display">
-            Один сценарий —<br />
-            <span style={{ color: accent }}>две точки зрения</span>
-          </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 12, flexWrap: 'wrap' }}>
-            <p style={{ margin: 0 }}></p>
+        <div className="shead-pin">
+          <div className="shead-tag"><span className="shead-num">03</span><span className="shead-name">Сценарий</span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: -8, flexWrap: 'wrap', alignSelf: 'flex-start' }}>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--mute)',
@@ -61,6 +56,12 @@ function Flow({ accent }) {
             {!touched && <Decor.ToggleHint color={accent} />}
             </div>
           </div>
+        </div>
+        <div className="shead reveal">
+          <h2 className="display">
+            Один сценарий —<br />
+            <span style={{ color: accent }}>две точки зрения</span>
+          </h2>
         </div>
 
         <div className="flow-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 60, alignItems: 'start' }}>
