@@ -37,7 +37,7 @@ function FAQ({ accent }) {
 
 
   return (
-    <section id="faq" style={{ background: 'var(--paper-2)', position: 'relative', overflow: 'hidden' }}>
+    <section id="faq" style={{ background: 'transparent', position: 'relative', overflow: 'hidden' }}>
       <Decor.Squiggle color={BLUE} width={200} height={50} strokeWidth={4} dur={11}
       style={{ position: 'absolute', top: 70, right: '8%', opacity: 0.45 }} />
       <Decor.DotGrid color={accent} cols={5} rows={5} gap={12} dot={4} opacity={0.35}

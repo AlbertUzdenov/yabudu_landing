@@ -26,8 +26,8 @@ function Flow({ accent }) {
   const steps = side === 'participant' ? participantSteps : organizerSteps;
 
   return (
-    <section id="flow">
-      <div className="wrap">
+    <section id="flow" style={{ background: 'transparent', position: 'relative', overflow: 'hidden' }}>
+      <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">
           <span className="eyebrow">03 — сценарий</span>
           <h2 className="display">

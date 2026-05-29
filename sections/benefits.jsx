@@ -46,8 +46,6 @@ function Benefits({ accent }) {
       style={{ position: 'absolute', top: 80, left: '6%', opacity: 0.5 }} />
       <Decor.DotGrid color={accent} cols={6} rows={6} gap={12} dot={4} opacity={0.4}
       style={{ position: 'absolute', top: 110, right: '4%' }} />
-      <Decor.Blob color={accent} size={500} x="65%" y="50%" opacity={0.07} dur={24} blur={90} />
-      <Decor.Blob color="#2F33F9" size={480} x="-10%" y="30%" opacity={0.07} dur={28} delay={3} blur={90} />
 
       <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">

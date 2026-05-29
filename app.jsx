@@ -23,6 +23,7 @@ function App() {
 
   return (
     <>
+      <Decor.PageBg accent={accent}/>
       <Nav accent={accent}/>
 
       <Hero accent={accent}/>

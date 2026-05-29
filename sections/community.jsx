@@ -62,7 +62,7 @@ function Community({ accent }) {
 
   return (
     <section id="community" style={{
-      background: 'var(--paper)', position: 'relative', overflow: 'hidden'
+      background: 'transparent', position: 'relative', overflow: 'hidden'
     }}>
       {/* Floating avatars background */}
       <div style={{ position: 'absolute', inset: 0, opacity: 0.85 }}>

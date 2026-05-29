@@ -7,11 +7,9 @@ function Solution({ accent }) {
   { t: 'Билеты и организация', d: 'QR на входе, встроенная аналитика, мгновенные выплаты после события, алгоритмы настроены на вашу аудиторию. Меньше очередей, меньше ошибок, меньше ручной работы. Свои люди!', icon: <Icon.Ticket size={28} color="white" />, tint: 'var(--ink)', dark: false }];
 
   return (
-    <section id="solution" style={{ background: 'var(--paper-2)', position: 'relative', overflow: 'hidden' }}>
+    <section id="solution" style={{ background: 'transparent', position: 'relative', overflow: 'hidden' }}>
       <Decor.Squiggle color={accent} width={220} height={56} strokeWidth={4} dur={11}
       style={{ position: 'absolute', top: 100, right: '7%', opacity: 0.6 }} />
-      <Decor.Blob color={accent} size={560} x="78%" y="30%" opacity={0.07} dur={26} blur={100} />
-      <Decor.Blob color="#2F33F9" size={500} x="-8%" y="60%" opacity={0.07} dur={22} delay={3} blur={90} />
       <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">
           <span className="eyebrow">02 — решение</span>

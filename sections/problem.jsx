@@ -30,8 +30,6 @@ function Problem({ accent }) {
     <section id="problem" style={{ position: 'relative', overflow: 'hidden' }}>
       <Decor.Burst color={accent} size={64} dur={14}
       style={{ position: 'absolute', top: 80, right: '6%', opacity: 0.7 }} />
-      <Decor.Blob color={accent} size={420} x="-8%" y="40%" opacity={0.08} dur={24} blur={80} />
-      <Decor.Blob color="#2F33F9" size={500} x="70%" y="50%" opacity={0.08} dur={28} delay={4} blur={90} />
 
       <div className="wrap" style={{ position: 'relative' }}>
         <div className="shead reveal">

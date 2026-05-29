@@ -123,6 +123,61 @@ function WaveDivider({ color = ORANGE, flip = false, height = 60 }) {
 
 }
 
+// Bold flowing ribbon — thick organic curve (Memphis / squiggle style)
+const RIBBON_PATHS = {
+  // loose loop, like the swirl references
+  loop: 'M-40 120 C 120 40, 60 240, 220 180 S 360 40, 300 200 S 180 360, 360 320',
+  // tall S-spiral / coil
+  coil: 'M120 -30 C 320 60, 40 160, 240 250 C 380 310, 120 380, 300 470',
+  // horizontal wave ribbon
+  wave: 'M-40 200 C 120 80, 240 320, 400 200 S 640 80, 800 200',
+  // big rolling curl bottom-corner
+  curl: 'M-40 320 C 80 360, 140 200, 260 240 C 380 280, 360 100, 480 140'
+};
+
+function Ribbon({ variant = 'loop', color = BLUE_DECOR, width = 420, stroke = 60, opacity = 0.1, dur = 26, delay = 0, style = {} }) {
+  const vb = variant === 'wave' ? '0 0 760 400' : variant === 'curl' ? '0 0 440 400' : '0 0 360 480';
+  return (
+    <svg width={width} viewBox={vb} fill="none" aria-hidden="true"
+    style={{ position: 'absolute', opacity, pointerEvents: 'none', overflow: 'visible',
+      animation: `ribbon-drift ${dur}s ease-in-out ${delay}s infinite`, ...style }}>
+      <path d={RIBBON_PATHS[variant]} stroke={color} strokeWidth={stroke}
+      strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    </svg>);
+
+}
+
+// One continuous full-page background — soft color wash + flowing ribbons,
+// distributed down the whole document so there are no per-section seams.
+function PageBg({ accent = ORANGE }) {
+  const B = BLUE_DECOR;
+  return (
+    <div className="page-bg" aria-hidden="true">
+      {/* soft color wash */}
+      <Blob color={accent} size={560} x="-14%" y="0%" opacity={0.07} dur={24} blur={110} />
+      <Blob color={B} size={640} x="68%" y="9%" opacity={0.06} dur={28} delay={3} blur={120} />
+      <Blob color={accent} size={500} x="-10%" y="23%" opacity={0.06} dur={26} delay={2} blur={100} />
+      <Blob color={B} size={560} x="66%" y="35%" opacity={0.06} dur={30} delay={5} blur={110} />
+      <Blob color={accent} size={520} x="-12%" y="49%" opacity={0.06} dur={25} delay={1} blur={100} />
+      <Blob color={B} size={560} x="64%" y="61%" opacity={0.06} dur={29} delay={4} blur={110} />
+      <Blob color={accent} size={500} x="-10%" y="75%" opacity={0.06} dur={27} delay={2} blur={100} />
+      <Blob color={B} size={600} x="68%" y="89%" opacity={0.06} dur={31} delay={6} blur={120} />
+
+      {/* flowing ribbons */}
+      <Ribbon variant="coil" color={B} width={340} stroke={54} opacity={0.10} dur={28} style={{ top: '2%', right: '-6%' }} />
+      <Ribbon variant="loop" color={accent} width={300} stroke={48} opacity={0.11} dur={32} delay={3} style={{ top: '11%', left: '-7%' }} />
+      <Ribbon variant="curl" color={accent} width={340} stroke={52} opacity={0.10} dur={34} delay={2} style={{ top: '21%', right: '-7%' }} />
+      <Ribbon variant="wave" color={B} width={520} stroke={54} opacity={0.09} dur={33} delay={5} style={{ top: '31%', left: '-5%' }} />
+      <Ribbon variant="coil" color={accent} width={320} stroke={52} opacity={0.10} dur={29} delay={1} style={{ top: '41%', right: '-6%' }} />
+      <Ribbon variant="loop" color={B} width={300} stroke={48} opacity={0.10} dur={35} delay={4} style={{ top: '50%', left: '-7%' }} />
+      <Ribbon variant="curl" color={B} width={340} stroke={52} opacity={0.10} dur={32} delay={2} style={{ top: '60%', right: '-7%' }} />
+      <Ribbon variant="coil" color={accent} width={320} stroke={52} opacity={0.10} dur={30} delay={5} style={{ top: '69%', left: '-6%' }} />
+      <Ribbon variant="loop" color={accent} width={300} stroke={48} opacity={0.11} dur={34} delay={3} style={{ top: '78%', right: '-7%' }} />
+      <Ribbon variant="wave" color={B} width={520} stroke={54} opacity={0.09} dur={33} delay={1} style={{ top: '87%', left: '-5%' }} />
+    </div>);
+
+}
+
 // Global keyframes for decor
 const decorStyle = document.createElement('style');
 decorStyle.textContent = `
@@ -140,10 +195,14 @@ decorStyle.textContent = `
   0%, 100% { transform: scale(0.92); opacity: 0.18; }
   50% { transform: scale(1.08); opacity: 0.35; }
 }
+@keyframes ribbon-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(0, -18px) rotate(2deg); }
+}
 `;
 document.head.appendChild(decorStyle);
 
-window.Decor = { Blob, Squiggle, Burst, Rings, DotGrid, Donut, Stripes, MeshBg, WaveDivider, ToggleHint };
+window.Decor = { Blob, Squiggle, Burst, Rings, DotGrid, Donut, Stripes, MeshBg, WaveDivider, ToggleHint, Ribbon, PageBg };
 
 // Animated "tap me" arrow hint that points back at a toggle
 function ToggleHint({ color = ORANGE, label = 'нажми', style = {} }) {

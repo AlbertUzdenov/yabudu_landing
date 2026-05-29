@@ -9,19 +9,16 @@ function Hero({ accent }) {
 
   return (
     <section id="hero" style={{
-      padding: 0, minHeight: '100vh', background: '#ffffff', color: 'var(--ink)',
-      position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center'
+      padding: 0, minHeight: '100vh', background: 'transparent', color: 'var(--ink)',
+      position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'flex-start'
     }}>
-      {/* animated mesh blobs */}
-      <Decor.Blob color={accent} size={560} x="-16%" y="-20%" opacity={0.10} dur={22} blur={100} />
-      <Decor.Blob color={BLUE} size={680} x="68%" y="62%" opacity={0.09} dur={26} delay={3} blur={120} />
-      <Decor.Blob color={accent} size={360} x="84%" y="-12%" opacity={0.09} dur={20} delay={6} blur={80} />
+
 
       {/* floating decorative accents */}
       <Decor.Burst color={accent} size={70} dur={14}
       style={{ position: 'absolute', top: '7%', right: '5%', opacity: 0.9 }} />
 
-      <div className="wrap" style={{ position: 'relative', width: '100%', paddingTop: 56, paddingBottom: 80 }}>
+      <div className="wrap" style={{ position: 'relative', width: '100%', paddingTop: 80, paddingBottom: 72 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 60, alignItems: 'center' }}>
           {/* left */}
           <div className="reveal in hero-left">
