@@ -154,17 +154,8 @@ function OrganizerPhone({ accent }) {
         alt="Статистика события Я_БУДУ"
         style={{
           display: 'block', width: '100%', height: 'auto',
-          position: 'absolute', left: 0, top: 0,
-          animation: 'screen-scroll-stats 22s ease-in-out infinite'
+          position: 'absolute', left: 0, top: 0
         }} />
-      
-      <style>{`
-        @keyframes screen-scroll-stats {
-          0%, 12% { transform: translateY(0%); }
-          48%, 62% { transform: translateY(calc(-100% + 576px)); }
-          92%, 100% { transform: translateY(0%); }
-        }
-      `}</style>
     </div>);
 
 }
