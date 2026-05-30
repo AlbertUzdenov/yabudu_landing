@@ -35,6 +35,8 @@ function App() {
       <FAQ accent={accent}/>
       <Footer accent={accent}/>
 
+      <CookieBanner accent={accent}/>
+
       <TweaksPanel title="Tweaks">
         <TweakSection label="Акцентный цвет">
           <TweakColor
